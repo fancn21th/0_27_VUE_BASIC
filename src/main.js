@@ -3,6 +3,8 @@ var card = new Vue({
   data: {
     title: "foo",
     content: "<h1>bar</h1>",
+    input: '',
+    buttonText: 'nothing',
     items: [
       {
         text: 'foo1'
@@ -17,12 +19,11 @@ var card = new Vue({
   },
   methods: {
     addItem: function () {
-      var input = document.getElementById('itemForm')
-      if(input.value) {
+      if(this.input) {
         this.items.push({
-          text: input.value
+          text: this.input
         })
-        input.value = ''
+        this.input = ''
       }
     },
     deleteItem: function (index) {
@@ -40,5 +41,10 @@ var card = new Vue({
     total: function () {
       return this.items.length
     }
+  },
+  watch: {
+    input : debounce(function () {
+      this.buttonText = this.input ? this.input : 'nothing'
+    }, 200)
   }
 })

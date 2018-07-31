@@ -13,7 +13,13 @@
     <header>{{ title | capitalize }}</header>
     <div v-html="content"></div>
     <div>
-      <input id="itemForm" type="text" v-on:keypress.enter="addItem">
+      <input
+        id="itemForm"
+        type="text"
+        v-on:keypress.enter="addItem"
+        v-model="input"
+      />
+      <button v-on:click="addItem">Add {{buttonText}}</button>
     </div>
     <ul>
       <li v-for="(item, index) in items">
@@ -24,7 +30,8 @@
     <h4>totoal: {{total}}</h4>
   </div>
 
-  <script src="https://unpkg.com/vue"></script>
+  <script src="src/vue.js"></script>
+  <script src="src/lib.js"></script>
   <script src="src/main.js"></script>
 </body>
 </html>
