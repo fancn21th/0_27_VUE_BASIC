@@ -1,15 +1,28 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>VUE</title>
+  <title>Vue Features</title>
+  <link rel="stylesheet" href="src/main.css">
 </head>
 <body>
-  <h1>My App</h1>
-  <div id="app"></div>
+  <div id="card">
+    <header>{{ title }}</header>
+    <div v-html="content"></div>
+    <div>
+      <input id="itemForm" type="text" v-on:keypress.enter="addItem">
+    </div>
+    <ul>
+      <li v-for="item in items">
+        {{ item.text }}
+      </li>
+    </ul>
+  </div>
+
   <script src="https://unpkg.com/vue"></script>
-  <script src="./main.js"></script>
+  <script src="src/main.js"></script>
 </body>
 </html>
