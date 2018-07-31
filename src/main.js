@@ -35,5 +35,10 @@ var card = new Vue({
       value = value.toString()
       return value.charAt(0).toUpperCase() + value.slice(1)
     }
+  },
+  computed: {
+    total: function () {
+      return this.items.length
+    }
   }
 })
