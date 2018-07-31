@@ -24,6 +24,16 @@ var card = new Vue({
         })
         input.value = ''
       }
+    },
+    deleteItem: function (index) {
+      this.items.splice(index, 1)
+    }
+  },
+  filters: {
+    capitalize: function (value) {
+      if(!value) return ''
+      value = value.toString()
+      return value.charAt(0).toUpperCase() + value.slice(1)
     }
   }
 })

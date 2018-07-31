@@ -10,13 +10,14 @@
 </head>
 <body>
   <div id="card">
-    <header>{{ title }}</header>
+    <header>{{ title | capitalize }}</header>
     <div v-html="content"></div>
     <div>
       <input id="itemForm" type="text" v-on:keypress.enter="addItem">
     </div>
     <ul>
-      <li v-for="item in items">
+      <li v-for="(item, index) in items">
+        <button v-on:click="deleteItem">X</button>
         {{ item.text }}
       </li>
     </ul>
